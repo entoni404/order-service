@@ -1,6 +1,7 @@
 package com.example.orderservice.Controller;
 
 import com.example.orderservice.Model.Order;
+import com.example.orderservice.Model.OrderEntity;
 import com.example.orderservice.Service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,8 +25,8 @@ public class OrderController {
         return orderService.getOrderByOrderNumber(orderNumber);
     }
 
-    @GetMapping("/byStatus") public List<Order> getOrderByStatus(@RequestBody Order order){
-        return orderService.getOrderByStatus(order);
+    @GetMapping("/{status}") public List<Order> getOrderByStatus(@PathVariable String status){
+        return orderService.getOrderByStatus(status);
     }
 
     @PostMapping("/create") @ResponseStatus(HttpStatus.CREATED) public String saveOrder(@RequestBody Order order){

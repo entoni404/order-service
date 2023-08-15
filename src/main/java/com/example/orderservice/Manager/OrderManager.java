@@ -32,24 +32,8 @@ public class OrderManager {
 
 
             // FILTERING BY STATUS - Newest Submitted Day
-    public List<OrderEntity> getOrdersByStatus(OrderEntity order){
-        List<OrderEntity> targetOrders = null;
-        for(int i = 0; i < getAllOrders().size(); i++){
-            // the status approved can be replaced with a variable which can than return orders by status
-            if(order.getStatus()=="Approved"){
-                targetOrders.add(order);
-            }
-        }
-
-        // filtering order by submission date
-        Collections.sort(targetOrders, new Comparator<OrderEntity>() {
-            @Override
-            public int compare(OrderEntity order1, OrderEntity order2) {
-                return order2.getSubmit().compareTo(order1.getSubmit());
-            }
-        });
-
-           return targetOrders;
+    public List<OrderEntity> getOrdersByStatus(String status){
+                 return orderRepository.findOrdersByStatus(status);
     }
 
 

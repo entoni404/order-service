@@ -19,8 +19,8 @@ public class OrderService {
         return orderManager.getAllOrders().stream().map(this::mapToOrder).collect(Collectors.toList());
     }
 
-    public List<Order> getOrderByStatus(Order order){
-        return orderManager.getOrdersByStatus(mapToOrderEntity(order)).stream().map(this::mapToOrder).collect(Collectors.toList());
+    public List<Order> getOrderByStatus(String status){
+        return orderManager.getOrdersByStatus(status).stream().map(this::mapToOrder).collect(Collectors.toList());
     }
 
 
