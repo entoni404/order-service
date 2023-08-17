@@ -22,6 +22,8 @@ public class OrderManager {
 
     // CREATE AN ORDER
     public void saveOrder(OrderEntity order){
+
+        order.setStatus("Awaiting_Approval");
         orderRepository.save(order);
     }
 
