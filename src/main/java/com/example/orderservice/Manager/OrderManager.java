@@ -40,14 +40,14 @@ public class OrderManager {
 
 
     // GET ORDER BY ORDER NUMBER - ALL INFO GIVEN
-    public OrderEntity getOrderByOrderNumber(Long orderNumber){
-        return orderRepository.findById(orderNumber)
+    public OrderEntity getOrderById(Long id){
+        return orderRepository.findById(id)
                 .orElseThrow(() -> new NoSuchElementException("The order does not exist"));
     }
 
     //DELETE ORDER by id
-    public void deleteOrder(Long orderNumber){
-        orderRepository.deleteById(orderNumber);
+    public void deleteOrder(Long id){
+        orderRepository.deleteById(id);
     }
 
 
@@ -58,8 +58,8 @@ public class OrderManager {
 
 
     // UPDATE ORDER STATUS
-    public void updateOrderStatus(OrderEntity order, Long orderNumber){
-        OrderEntity currentOrder = getOrderByOrderNumber(orderNumber);
+    public void updateOrderStatus(OrderEntity order, Long id){
+        OrderEntity currentOrder = getOrderById(id);
         currentOrder.setStatus(order.getStatus());
         orderRepository.save(currentOrder);
     }

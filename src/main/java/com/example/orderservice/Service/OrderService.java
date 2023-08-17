@@ -24,8 +24,8 @@ public class OrderService {
     }
 
 
-    public Order getOrderByOrderNumber(Long orderNumber) {
-        return mapToOrder(orderManager.getOrderByOrderNumber(orderNumber));
+    public Order getOrderById(Long id) {
+        return mapToOrder(orderManager.getOrderById(id));
     }
 
     public void saveOrder(Order order) {

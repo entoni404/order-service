@@ -21,8 +21,8 @@ public class OrderController {
         return orderService.getAllOrders();
     }
 
-    @GetMapping("/get/{orderNumber}") public Order getOrderByOrderNumber(@PathVariable Long orderNumber){
-        return orderService.getOrderByOrderNumber(orderNumber);
+    @GetMapping("/get/{orderNumber}") public Order getOrderById(@PathVariable Long id){
+        return orderService.getOrderById(id);
     }
 
     @GetMapping("/{status}") public List<Order> getOrderByStatus(@PathVariable String status){
@@ -34,8 +34,8 @@ public class OrderController {
         return "Order Added";
     }
 
-    @DeleteMapping("/delete/{orderNumber}") public String deleteOrder(@PathVariable Long orderNumber){
-        orderService.deleteOrder(orderNumber);
+    @DeleteMapping("/delete/{id}") public String deleteOrder(@PathVariable Long id){
+        orderService.deleteOrder(id);
         return "Order Deleted";
     }
 
